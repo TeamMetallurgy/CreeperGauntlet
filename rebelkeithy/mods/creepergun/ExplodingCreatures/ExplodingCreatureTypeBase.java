@@ -3,20 +3,16 @@ package rebelkeithy.mods.creepergun.ExplodingCreatures;
 import java.util.ArrayList;
 import java.util.List;
 
-import rebelkeithy.mods.creepergun.CreeperConfig;
-import rebelkeithy.mods.creepergun.api.IExplodingCreatureRendererHelper;
-import rebelkeithy.mods.creepergun.api.IExplodingCreatureType;
-
-import net.minecraft.block.Block;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.monster.EntitySlime;
-import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
+import rebelkeithy.mods.creepergun.CreeperConfig;
+import rebelkeithy.mods.creepergun.api.IExplodingCreatureRendererHelper;
+import rebelkeithy.mods.creepergun.api.IExplodingCreatureType;
 import cpw.mods.fml.relauncher.ReflectionHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -49,18 +45,23 @@ public class ExplodingCreatureTypeBase implements IExplodingCreatureType
 	@Override
 	public List getDrops(Entity entity) 
 	{
-		List<ItemStack> drops = CreeperConfig.dropTable.get(entity.getClass().getSimpleName());
-		List<ItemStack> returnDrops = new ArrayList<ItemStack>();
-
-        for(ItemStack stack : drops)
-        {
-        	ItemStack dropStack = stack.copy();       	
-        	returnDrops.add(dropStack);
-        }
+		if(entity != null)
+		{
+			List<ItemStack> drops = CreeperConfig.dropTable.get(entity.getClass().getSimpleName());
+			List<ItemStack> returnDrops = new ArrayList<ItemStack>();
+	
+	        for(ItemStack stack : drops)
+	        {
+	        	ItemStack dropStack = stack.copy();       	
+	        	returnDrops.add(dropStack);
+	        }
+			
+	        randomizeDropAmounts(returnDrops, 0.4f);
+			
+	        return returnDrops;
+		}
 		
-        randomizeDropAmounts(returnDrops, 0.4f);
-        
-        return returnDrops;
+		return new ArrayList<ItemStack>();
 	}
 	
 	public void randomizeDropAmounts(List<ItemStack> drops, float randomness)

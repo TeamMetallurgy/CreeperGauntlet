@@ -192,7 +192,6 @@ public class EntityExplodingCreature extends EntityLiving
         par1NBTTagCompound.setShort("Fuse", (short)this.fuseTime);
         
         NBTTagCompound entityNBT = new NBTTagCompound();
-        if(entity != null)
         entity.writeToNBT(entityNBT);
         par1NBTTagCompound.setCompoundTag("ContainedEntity", entityNBT);
     }
@@ -209,7 +208,7 @@ public class EntityExplodingCreature extends EntityLiving
             this.fuseTime = par1NBTTagCompound.getShort("Fuse");
         }
         
-        NBTTagCompound entityNBT = par1NBTTagCompound.getCompoundTag("ContaindedEntity");
+        NBTTagCompound entityNBT = par1NBTTagCompound.getCompoundTag("ContainedEntity");
         entity = EntityList.createEntityFromNBT(entityNBT, worldObj);
         initCreatureType();
     }
@@ -229,7 +228,7 @@ public class EntityExplodingCreature extends EntityLiving
         }
         
         
-        if(entity.getClass() == EntitySilverfish.class && !worldObj.isRemote)
+        if(entity != null && entity.getClass() == EntitySilverfish.class && !worldObj.isRemote)
     	{
     		for(int i = 0; i < 10; i++)
     		{
@@ -245,7 +244,7 @@ public class EntityExplodingCreature extends EntityLiving
     		}
     	}
         
-        if(entity.getClass() == EntityBat.class && !worldObj.isRemote)
+        if(entity != null && entity.getClass() == EntityBat.class && !worldObj.isRemote)
     	{
     		for(int i = 0; i < 10; i++)
     		{

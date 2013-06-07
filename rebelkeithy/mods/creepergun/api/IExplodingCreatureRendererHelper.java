@@ -9,8 +9,9 @@ public interface IExplodingCreatureRendererHelper
 
     public int shouldRenderPass(IRenderAccess renderer, EntityLiving par1EntityLiving, int par2, float par3);
     
+    // Used for any extra equipment, such as the snow golems head. Biped should have their equipment render automatically
     public void renderEquippedItems(IRenderAccess renderer, EntityLiving par1EntityLiving, float par2);
 
-    // Can be null
+    // Return null if not needed
 	public ModelBase getRenderPassModel();
 }
