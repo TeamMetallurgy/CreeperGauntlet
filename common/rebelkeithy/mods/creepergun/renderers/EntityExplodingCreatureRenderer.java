@@ -9,9 +9,11 @@ import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.event.RenderLivingEvent;
 
 import org.lwjgl.opengl.GL11;
 
@@ -139,15 +141,18 @@ public class EntityExplodingCreatureRenderer extends RenderLiving implements IRe
     /**
      * Returns an ARGB int color back. Args: entityLiving, lightBrightness, partialTickTime
      */
-    protected int getColorMultiplier(EntityLiving par1EntityLiving, float par2, float par3)
+    @Override
+    protected int getColorMultiplier(EntityLivingBase par1EntityLiving, float par2, float par3)
     {
         return this.updateCreeperColorMultiplier((EntityExplodingCreature)par1EntityLiving, par2, par3);
     }
-
-    protected int inheritRenderPass(EntityLiving par1EntityLiving, int par2, float par3)
+    
+    @Override
+    protected int inheritRenderPass(EntityLivingBase par1EntityLiving, int par2, float par3)
     {
         return -1;
     }
+    
 	public void renderCreeper(EntityExplodingCreature entity, double par2, double par4, double par6, float par8, float par9)
     {
 		if(entity.entity == null)
@@ -181,7 +186,8 @@ public class EntityExplodingCreatureRenderer extends RenderLiving implements IRe
      * Allows the render to do any OpenGL state modifications necessary before the model is rendered. Args:
      * entityLiving, partialTickTime
      */
-    protected void preRenderCallback(EntityLiving par1EntityLiving, float par2)
+	@Override
+    protected void preRenderCallback(EntityLivingBase par1EntityLiving, float par2)
     {
     	IExplodingCreatureRendererHelper renderHelper = ((EntityExplodingCreature)par1EntityLiving).creatureType.getRenderHelper(((EntityExplodingCreature)par1EntityLiving).entity);
     	
@@ -197,7 +203,8 @@ public class EntityExplodingCreatureRenderer extends RenderLiving implements IRe
     /**
      * Queries whether should render the specified pass or not.
      */
-    protected int shouldRenderPass(EntityLiving par1EntityLiving, int par2, float par3)
+	@Override
+    protected int shouldRenderPass(EntityLivingBase par1EntityLiving, int par2, float par3)
     {
     	IExplodingCreatureRendererHelper renderHelper = ((EntityExplodingCreature)par1EntityLiving).creatureType.getRenderHelper(((EntityExplodingCreature)par1EntityLiving).entity);
     	
@@ -208,8 +215,8 @@ public class EntityExplodingCreatureRenderer extends RenderLiving implements IRe
     }
 
    
-
-    protected void renderEquippedItems(EntityLiving par1EntityLiving, float par2)
+	@Override
+    protected void renderEquippedItems(EntityLivingBase par1EntityLiving, float par2)
     {
     	IExplodingCreatureRendererHelper renderHelper = ((EntityExplodingCreature)par1EntityLiving).creatureType.getRenderHelper(par1EntityLiving);
     	
@@ -225,6 +232,7 @@ public class EntityExplodingCreatureRenderer extends RenderLiving implements IRe
      * (Render<T extends Entity) and this method has signature public void doRender(T entity, double d, double d1,
      * double d2, float f, float f1). But JAD is pre 1.5 so doesn't do that.
      */
+	@Override
     public void doRender(Entity par1Entity, double par2, double par4, double par6, float par8, float par9)
     {
         this.renderCreeper((EntityExplodingCreature)par1Entity, par2, par4, par6, par8, par9);
@@ -239,6 +247,6 @@ public class EntityExplodingCreatureRenderer extends RenderLiving implements IRe
 	@Override
 	protected ResourceLocation getEntityTexture(Entity entity) {
 		// TODO: Send texture
-		return null;
+		return new ResourceLocation("");
 	}
 }

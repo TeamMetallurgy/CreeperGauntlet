@@ -4,6 +4,7 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.model.ModelZombie;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import rebelkeithy.mods.creepergun.entities.EntityExplodingCreature;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -39,10 +40,11 @@ public class ModelExplodingSkeleton extends ModelZombie
      * Used for easily adding entity-dependent animations. The second and third float params here are the same second
      * and third as in the setRotationAngles method.
      */
-    public void setLivingAnimations(EntityLiving par1EntityLiving, float par2, float par3, float par4)
+    @Override
+    public void setLivingAnimations(EntityLivingBase par1EntityLivingBase, float par2, float par3, float par4)
     {
-        this.aimedBow = ((EntityExplodingCreature)par1EntityLiving).getSkeletonType() == 1;
-        super.setLivingAnimations(par1EntityLiving, par2, par3, par4);
+        this.aimedBow = ((EntityExplodingCreature)par1EntityLivingBase).getSkeletonType() == 1;
+        super.setLivingAnimations(par1EntityLivingBase, par2, par3, par4);
     }
 
     /**
@@ -50,6 +52,7 @@ public class ModelExplodingSkeleton extends ModelZombie
      * and legs, where par1 represents the time(so that arms and legs swing back and forth) and par2 represents how
      * "far" arms and legs can swing at most.
      */
+    @Override
     public void setRotationAngles(float par1, float par2, float par3, float par4, float par5, float par6, Entity par7Entity)
     {
         super.setRotationAngles(par1, par2, par3, par4, par5, par6, par7Entity);

@@ -4,6 +4,7 @@ import net.minecraft.client.model.ModelQuadruped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.passive.EntitySheep;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -41,7 +42,8 @@ public class ModelExplodingSheep1 extends ModelQuadruped
      * Used for easily adding entity-dependent animations. The second and third float params here are the same second
      * and third as in the setRotationAngles method.
      */
-    public void setLivingAnimations(EntityLiving par1EntityLiving, float par2, float par3, float par4)
+    @Override
+    public void setLivingAnimations(EntityLivingBase par1EntityLiving, float par2, float par3, float par4)
     {
         super.setLivingAnimations(par1EntityLiving, par2, par3, par4);
         //this.head.rotationPointY = 6.0F + ((EntitySheep)par1EntityLiving).func_70894_j(par4) * 9.0F;
@@ -53,6 +55,7 @@ public class ModelExplodingSheep1 extends ModelQuadruped
      * and legs, where par1 represents the time(so that arms and legs swing back and forth) and par2 represents how
      * "far" arms and legs can swing at most.
      */
+    @Override
     public void setRotationAngles(float par1, float par2, float par3, float par4, float par5, float par6, Entity par7Entity)
     {
         super.setRotationAngles(par1, par2, par3, par4, par5, par6, par7Entity);

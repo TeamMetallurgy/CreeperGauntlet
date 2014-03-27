@@ -7,12 +7,14 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.client.renderer.entity.RendererLivingEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import rebelkeithy.mods.creepergun.CreeperConfig;
 import rebelkeithy.mods.creepergun.api.IExplodingCreatureRendererHelper;
 import rebelkeithy.mods.creepergun.api.IExplodingCreatureType;
+import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import cpw.mods.fml.relauncher.ReflectionHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -25,7 +27,7 @@ public class ExplodingCreatureTypeBase implements IExplodingCreatureType
 	public ModelBase getModel(Entity entity) 
 	{
 		Render render = RenderManager.instance.getEntityClassRenderObject(entity.getClass());
-		return ReflectionHelper.getPrivateValue(RenderLiving.class, (RenderLiving)render, "mainModel", "field_77045_g", "i");
+		return ObfuscationReflectionHelper.getPrivateValue(RendererLivingEntity.class, (RendererLivingEntity)render, "mainModel");
 	}
 	
 	

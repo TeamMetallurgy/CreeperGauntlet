@@ -5,6 +5,7 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityIronGolem;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -70,6 +71,7 @@ public class ModelExplodingIronGolem extends ModelBase
     /**
      * Sets the models various rotation angles then renders the model.
      */
+    @Override
     public void render(Entity par1Entity, float par2, float par3, float par4, float par5, float par6, float par7)
     {
         this.setRotationAngles(par2, par3, par4, par5, par6, par7, par1Entity);
@@ -86,6 +88,7 @@ public class ModelExplodingIronGolem extends ModelBase
      * and legs, where par1 represents the time(so that arms and legs swing back and forth) and par2 represents how
      * "far" arms and legs can swing at most.
      */
+    @Override
     public void setRotationAngles(float par1, float par2, float par3, float par4, float par5, float par6, Entity par7Entity)
     {
         this.ironGolemHead.rotateAngleY = par4 / (180F / (float)Math.PI);
@@ -100,7 +103,8 @@ public class ModelExplodingIronGolem extends ModelBase
      * Used for easily adding entity-dependent animations. The second and third float params here are the same second
      * and third as in the setRotationAngles method.
      */
-    public void setLivingAnimations(EntityLiving par1EntityLiving, float par2, float par3, float par4)
+    @Override
+    public void setLivingAnimations(EntityLivingBase par1EntityLiving, float par2, float par3, float par4)
     {
     	EntityExplodingCreature entityirongolem = (EntityExplodingCreature)par1EntityLiving;
         int i = entityirongolem.getAttackTimer();
