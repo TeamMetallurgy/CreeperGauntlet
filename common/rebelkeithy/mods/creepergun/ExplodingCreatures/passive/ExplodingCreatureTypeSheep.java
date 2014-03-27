@@ -36,7 +36,9 @@ public class ExplodingCreatureTypeSheep extends ExplodingCreatureTypeBase
 	@SideOnly(Side.CLIENT)
 	public String getTexture(Entity entity) 
 	{
-		return entity.getTexture();
+		//TODO: Get replacement for getTexture
+		//return entity.getTexture();
+		return "";
 	}
 
 	@Override

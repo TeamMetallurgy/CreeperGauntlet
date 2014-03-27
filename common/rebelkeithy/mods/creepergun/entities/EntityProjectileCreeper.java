@@ -2,11 +2,14 @@ package rebelkeithy.mods.creepergun.entities;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+
 import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.EnchantmentThorns;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IProjectile;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.player.EntityPlayer;
@@ -62,7 +65,7 @@ public class EntityProjectileCreeper extends Entity implements IProjectile
         this.yOffset = 0.0F;
     }
 
-    public EntityProjectileCreeper(World par1World, EntityLiving par2EntityLiving, EntityLiving par3EntityLiving, float par4, float par5)
+    public EntityProjectileCreeper(World par1World, EntityLivingBase par2EntityLiving, EntityLiving par3EntityLiving, float par4, float par5)
     {
         super(par1World);
         this.renderDistanceWeight = 10.0D;
@@ -92,7 +95,7 @@ public class EntityProjectileCreeper extends Entity implements IProjectile
         }
     }
 
-    public EntityProjectileCreeper(World par1World, EntityLiving par2EntityLiving, float par3)
+    public EntityProjectileCreeper(World par1World, EntityLivingBase par2EntityLiving, float par3)
     {
         super(par1World);
         this.renderDistanceWeight = 10.0D;
@@ -258,8 +261,10 @@ public class EntityProjectileCreeper extends Entity implements IProjectile
             if (movingobjectposition != null && movingobjectposition.entityHit != null && movingobjectposition.entityHit instanceof EntityPlayer)
             {
                 EntityPlayer entityplayer = (EntityPlayer)movingobjectposition.entityHit;
-
-                if (entityplayer.capabilities.disableDamage || this.shootingEntity instanceof EntityPlayer && !((EntityPlayer)this.shootingEntity).func_96122_a(entityplayer))
+                
+                //TODO: Find func_96122_a replacement
+                //if (entityplayer.capabilities.disableDamage || this.shootingEntity instanceof EntityPlayer && !((EntityPlayer)this.shootingEntity).func_96122_a(entityplayer))
+                if (entityplayer.capabilities.disableDamage || this.shootingEntity instanceof EntityPlayer)
                 {
                     movingobjectposition = null;
                 }

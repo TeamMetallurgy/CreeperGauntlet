@@ -61,11 +61,12 @@ public class EntityDragonFollower extends Entity
 		this.posZ = dragon.dragonPartHead.posZ;
 	}
 	
-	@Override
+	//TODO: Find replacement if required
+	/*@Override
 	public String getTexture()
 	{
 		return "/mob/zombie.png";
-	}
+	}*/
 	
 	@Override
 	public boolean isInvisible()

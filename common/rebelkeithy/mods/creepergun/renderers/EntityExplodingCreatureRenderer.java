@@ -11,6 +11,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.MathHelper;
+import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
@@ -35,6 +36,8 @@ public class EntityExplodingCreatureRenderer extends RenderLiving implements IRe
     }
 
     // PLAYER SKIN
+    // TODO: Find replacement of player skin
+    /*
     protected void func_98190_a(EntityLiving par1EntityLiving)
     {
     	EntityExplodingCreature entity = (EntityExplodingCreature) par1EntityLiving;
@@ -48,6 +51,7 @@ public class EntityExplodingCreatureRenderer extends RenderLiving implements IRe
     {
         this.loadDownloadableImageTexture(par1EntityPlayer.skinUrl, par1EntityPlayer.getTexture());
     }
+    */
 
     /**
      * Updates creeper scale in prerender callback
@@ -108,7 +112,8 @@ public class EntityExplodingCreatureRenderer extends RenderLiving implements IRe
 
     public void loadTexture(String par1Str)
     {
-    	super.loadTexture(par1Str);
+    	//TODO: Find Replacement for loadTexture;
+    	//super.loadTexture(par1Str);
     }
     
     public RenderManager getRenderManager()
@@ -229,5 +234,11 @@ public class EntityExplodingCreatureRenderer extends RenderLiving implements IRe
 	public void setRenderPassModel(ModelBase model) 
 	{
 		super.setRenderPassModel(model);
+	}
+
+	@Override
+	protected ResourceLocation getEntityTexture(Entity entity) {
+		// TODO: Send texture
+		return null;
 	}
 }

@@ -4,8 +4,11 @@ import rebelkeithy.mods.particleregistry.ParticleRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
 public class EntityCreeperSucking extends EntityLiving
@@ -30,6 +33,7 @@ public class EntityCreeperSucking extends EntityLiving
 	{
 		super(par1World);
 		this.setPosition(x, y, z);
+		this.setHealth(1);
 		targetX = tx;
 		targetY = ty;
 		targetZ = tz;		
@@ -40,7 +44,6 @@ public class EntityCreeperSucking extends EntityLiving
 		stepY = (targetY - posY)/(float)shrinkTime;
 		stepZ = (targetZ - posZ)/(float)shrinkTime;
 		
-        this.texture = "/mob/creeper.png";
 	}
 
     public boolean func_94056_bM()
@@ -110,7 +113,9 @@ public class EntityCreeperSucking extends EntityLiving
     }
 
 	@Override
-	protected void entityInit() {}
+	protected void entityInit() {
+		super.entityInit();
+	}
 
 	@Override
 	public void readEntityFromNBT(NBTTagCompound nbttagcompound) 
@@ -122,13 +127,6 @@ public class EntityCreeperSucking extends EntityLiving
 	public void writeEntityToNBT(NBTTagCompound nbttagcompound) 
 	{
 		super.writeToNBT(nbttagcompound);
-	}
-
-	@Override
-	public int getMaxHealth()
-	{
-		// TODO Auto-generated method stub
-		return 1;
 	}
 
     @SideOnly(Side.CLIENT)
@@ -167,6 +165,14 @@ public class EntityCreeperSucking extends EntityLiving
 	public void linkItem(ItemStack itemstack)
 	{
 		this.itemstack = itemstack; 
+		
+	}
+	
+	@Override
+	protected void applyEntityAttributes() 
+	{
+		super.applyEntityAttributes();
+		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute(1.0D);
 		
 	}
 

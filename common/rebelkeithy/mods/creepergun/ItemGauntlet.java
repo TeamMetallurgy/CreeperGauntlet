@@ -3,6 +3,8 @@ package rebelkeithy.mods.creepergun;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.EntityLivingData;
 import net.minecraft.entity.boss.EntityDragon;
 import net.minecraft.entity.boss.EntityDragonPart;
 import net.minecraft.entity.boss.EntityWither;
@@ -126,9 +128,9 @@ public class ItemGauntlet extends Item
 				}
 				else 
 				{
-					if(event.target instanceof EntityLiving)
+					if(event.target instanceof EntityLivingBase)
 					{
-						EntityLiving entity = (EntityLiving) event.target;
+						EntityLivingBase entity = (EntityLivingBase) event.target;
 						itemstack.damageItem((1 << 2), event.entityPlayer);
 						//itemstack.setItemDamage(itemstack.getItemDamage() + (1 << 2));
 						
@@ -156,7 +158,7 @@ public class ItemGauntlet extends Item
 			} else {
 		    	if(event.target instanceof EntityCreeper)
 		    	{
-					EntityLiving entity = (EntityLiving) event.target;
+		    		EntityCreeper entity = (EntityCreeper) event.target;
 		    		itemstack.setItemDamage(itemstack.getItemDamage() | 1);
 		    		double xOffset = -Math.cos(Math.PI*(event.entityPlayer.rotationYawHead+0)/180) * 0.3;
 		    		double zOffset = -Math.sin(Math.PI*(event.entityPlayer.rotationYawHead+0)/180) * 0.3;
@@ -167,6 +169,7 @@ public class ItemGauntlet extends Item
 		    		newCreeper.linkItem(itemstack);
 		    		//newCreeper.setPosition(entity.posX, entity.posY, entity.posZ);
 					//newCreeper.setPosition(event.entityPlayer.posX+xOffset, event.entityPlayer.posY-1, event.entityPlayer.posZ+zOffset);
+		    		newCreeper.onSpawnWithEgg((EntityLivingData)null);
 					entity.worldObj.spawnEntityInWorld(newCreeper);
 					entity.setDead();
 		    		return true;
@@ -214,7 +217,7 @@ public class ItemGauntlet extends Item
     @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister par1IconRegister)
     {
-        this.unchargedIcon = par1IconRegister.registerIcon("CreeperGun:uncharged");
-        this.chargedIcon = par1IconRegister.registerIcon("CreeperGun:charged");
+        this.unchargedIcon = par1IconRegister.registerIcon("creepergun:uncharged");
+        this.chargedIcon = par1IconRegister.registerIcon("creepergun:charged");
     }
 }

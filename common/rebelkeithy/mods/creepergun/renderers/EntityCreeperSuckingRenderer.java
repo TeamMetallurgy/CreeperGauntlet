@@ -3,7 +3,6 @@ package rebelkeithy.mods.creepergun.renderers;
 import org.lwjgl.opengl.GL11;
 
 import rebelkeithy.mods.creepergun.entities.EntityCreeperSucking;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelChicken;
 import net.minecraft.client.model.ModelCreeper;
@@ -11,10 +10,12 @@ import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.util.MathHelper;
+import net.minecraft.util.ResourceLocation;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -23,6 +24,9 @@ public class EntityCreeperSuckingRenderer extends RenderLiving
 {
     /** The creeper model. */
     private ModelBase creeperModel = new ModelCreeper(2.0F);
+    
+    /** Creeper texture */
+	private static final ResourceLocation textureLocation =  new ResourceLocation("minecraft:textures/entity/creeper/creeper.png");
 
     public EntityCreeperSuckingRenderer()
     {
@@ -33,7 +37,8 @@ public class EntityCreeperSuckingRenderer extends RenderLiving
      * Allows the render to do any OpenGL state modifications necessary before the model is rendered. Args:
      * entityLiving, partialTickTime
      */
-    protected void preRenderCallback(EntityLiving par1EntityLiving, float par2)
+    @Override
+    protected void preRenderCallback(EntityLivingBase par1EntityLiving, float par2)
     {
         this.updateCreeperScale((EntityCreeperSucking)par1EntityLiving, par2);
     }
@@ -67,6 +72,7 @@ public class EntityCreeperSuckingRenderer extends RenderLiving
 		double posX = par2 + entity.getPosX(par9);
 		double posY = par4 + entity.getPosY(par9);
 		double posZ = par6 + entity.getPosZ(par9);
+		
         super.doRenderLiving(entity, posX, posY, posZ, par8, par9);
     }
 
@@ -85,4 +91,9 @@ public class EntityCreeperSuckingRenderer extends RenderLiving
     {
         this.renderCreeper((EntityCreeperSucking)par1Entity, par2, par4, par6, par8, par9);
     }
+
+	@Override
+	protected ResourceLocation getEntityTexture(Entity entity) {		
+		return textureLocation;
+	}
 }

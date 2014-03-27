@@ -59,12 +59,6 @@ public class EntityWitherFollower extends Entity
 	}
 	
 	@Override
-	public String getTexture()
-	{
-		return "/mob/zombie.png";
-	}
-	
-	@Override
 	public boolean isInvisible()
 	{
 		return true;

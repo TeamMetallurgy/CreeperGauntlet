@@ -27,12 +27,15 @@ public class ExplodingCreatureTypeBase implements IExplodingCreatureType
 		Render render = RenderManager.instance.getEntityClassRenderObject(entity.getClass());
 		return ReflectionHelper.getPrivateValue(RenderLiving.class, (RenderLiving)render, "mainModel", "field_77045_g", "i");
 	}
-
+	
+	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public String getTexture(Entity entity) 
 	{
-		return entity.getTexture();
+		//TODO:Find replacement function
+		//return entity.getTexture();
+		return "";
 	}
 
 	@Override

@@ -5,17 +5,19 @@ import org.lwjgl.opengl.GL11;
 import cpw.mods.fml.client.FMLClientHandler;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.particle.EntityFX;
-import net.minecraft.client.renderer.RenderEngine;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.entity.Entity;
-import net.minecraft.src.ModLoader;
 import net.minecraft.util.Icon;
 import net.minecraft.util.MathHelper;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
 public class ParticleCreeperFX extends EntityFX
 {
 	public Entity target;
+	
+	private final ResourceLocation mcParticles = new ResourceLocation("minecraft:textures/particle/particles.png");
+	private final ResourceLocation creeperParticles = new ResourceLocation("creepergun:textures/particles/creeper.png");
 
 	public ParticleCreeperFX(World par1World, double par2, double par4, double par6, double par8, double par10, double par12)
 	{
@@ -98,7 +100,8 @@ public class ParticleCreeperFX extends EntityFX
 	    float var8 = ((float)this.particleAge + f) / (float)this.particleMaxAge;
 	    this.particleScale = 1 * (1.0F - var8 * var8 * 0.5F);
 
-        GL11.glBindTexture(3553 /*GL_TEXTURE_2D*/, FMLClientHandler.instance().getClient().renderEngine.getTexture("/mods/CreeperGun/textures/particles/creeper.png"));
+        //GL11.glBindTexture(3553 /*GL_TEXTURE_2D*/, FMLClientHandler.instance().getClient().renderEngine.getTexture("/mods/CreeperGun/textures/particles/creeper.png"));
+        FMLClientHandler.instance().getClient().renderEngine.bindTexture(creeperParticles);
         
         float f0 = 0;//(float)(getParticleTextureIndex() % 16) / 16F;
 	    float f7 = f0 + 1/8F;
@@ -119,6 +122,7 @@ public class ParticleCreeperFX extends EntityFX
 	    tessellator1.addVertexWithUV((f11 + f1 * f10) - f4 * f10, f12 - f2 * f10, (f13 + f3 * f10) - f5 * f10, f0, f9);
 
 	    tessellator1.draw();
-	    GL11.glBindTexture(3553 /*GL_TEXTURE_2D*/, ModLoader.getMinecraftInstance().renderEngine.getTexture("/particles.png"));
+	    //GL11.glBindTexture(3553 /*GL_TEXTURE_2D*/, ModLoader.getMinecraftInstance().renderEngine.getTexture("/particles.png"));
+	    FMLClientHandler.instance().getClient().renderEngine.bindTexture(mcParticles);
 	}
 }

@@ -36,6 +36,7 @@ import rebelkeithy.mods.creepergun.entities.EntityExplodingCreature;
 import rebelkeithy.mods.creepergun.entities.EntityWitherFollower;
 import rebelkeithy.mods.creepergun.utils.CustomEntityItemStack;
 import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.Mod.PostInit;
@@ -67,7 +68,7 @@ public class CreeperGauntletMod
 	
 	public Map<String, IExplodingCreatureType> explodingCreatureMap;
 	
-	@PreInit
+	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
 		CreeperConfig.init(event.getSuggestedConfigurationFile());
@@ -75,7 +76,7 @@ public class CreeperGauntletMod
 		gauntlet = new ItemGauntlet(CreeperConfig.gauntletID).setCreativeTab(CreativeTabs.tabCombat);
 	}
 
-	@Init
+	@EventHandler
 	public void load(FMLInitializationEvent event)
 	{
 		EntityRegistry.registerGlobalEntityID(EntityCreeperSucking.class, "CreeperSucking", CreeperConfig.entityID);
@@ -121,7 +122,7 @@ public class CreeperGauntletMod
 		proxy.registerParticles();
 	}
 
-	@PostInit
+	@EventHandler
 	public void postInit(FMLPostInitializationEvent event)
 	{
 	}

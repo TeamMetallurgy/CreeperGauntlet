@@ -74,7 +74,8 @@ public class EntityExplodingCreature extends EntityLiving
 		for(int i = 0; i <= 4; i++)
 			this.setCurrentItemOrArmor(i, entity.getCurrentItemOrArmor(i));
 		
-		this.entity = entity;		
+		this.setHealth(100);
+		this.entity = entity;
 		initCreatureType();
 	}
 
@@ -261,11 +262,12 @@ public class EntityExplodingCreature extends EntityLiving
     	}
     }
     
-    @Override
+    //TODO: Check if getTexture() is required or have a repleacement
+    /*@Override
     public String getTexture()
     {
     	return creatureType.getTexture(entity);
-    }
+    }*/
 
     /**
      * Drops an item at the position of the entity.
@@ -283,12 +285,6 @@ public class EntityExplodingCreature extends EntityLiving
 	public EntityExplodingCreature(World par1World)
 	{
 		super(par1World);
-	}
-
-	@Override
-	public int getMaxHealth()
-	{
-		return 100;
 	}
 
     @SideOnly(Side.CLIENT)
