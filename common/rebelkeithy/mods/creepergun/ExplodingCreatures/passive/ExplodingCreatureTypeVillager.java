@@ -8,7 +8,6 @@ import rebelkeithy.mods.creepergun.ExplodingCreatures.ExplodingCreatureTypeBase;
 import rebelkeithy.mods.creepergun.ExplodingCreatures.renderers.ExplodingCreatureRenderVillager;
 import rebelkeithy.mods.creepergun.api.IExplodingCreatureRendererHelper;
 import rebelkeithy.mods.creepergun.models.ModelExplodingSheep2;
-
 import net.minecraft.block.Block;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelChicken;
@@ -39,5 +38,11 @@ public class ExplodingCreatureTypeVillager extends ExplodingCreatureTypeBase
         drops.add(new ItemStack(268 + ((int)(Math.random()*4)), 1, 0));        
         
         return drops;
+	}
+	
+	@SideOnly(Side.CLIENT)
+	@Override
+	public String getTexture (Entity enity) {
+		return "textures/entity/villager/villager.png";
 	}
 }

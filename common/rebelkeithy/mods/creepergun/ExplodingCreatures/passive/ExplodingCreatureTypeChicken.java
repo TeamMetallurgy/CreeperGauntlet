@@ -5,7 +5,6 @@ import java.util.List;
 
 import rebelkeithy.mods.creepergun.CreeperConfig;
 import rebelkeithy.mods.creepergun.ExplodingCreatures.ExplodingCreatureTypeBase;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelChicken;
 import net.minecraft.entity.Entity;
@@ -15,4 +14,9 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ExplodingCreatureTypeChicken extends ExplodingCreatureTypeBase
 {
+	@SideOnly(Side.CLIENT)
+	@Override
+	public String getTexture (Entity enity) {
+		return "minecraft:textures/entity/chicken.png";
+	}
 }

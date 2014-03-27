@@ -17,4 +17,10 @@ public class ExplodingCreatureTypeWitch extends ExplodingCreatureTypeBase
 	{
 		return renderHelper;
 	}
+	
+	@SideOnly(Side.CLIENT)
+	@Override
+	public String getTexture (Entity enity) {
+		return "minecraft:textures/entity/witch.png";
+	}
 }

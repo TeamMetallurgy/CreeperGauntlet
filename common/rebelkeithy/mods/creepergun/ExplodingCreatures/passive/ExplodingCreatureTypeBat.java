@@ -38,4 +38,10 @@ public class ExplodingCreatureTypeBat extends ExplodingCreatureTypeBase
 	{
 		return true;
 	}
+	
+	@SideOnly(Side.CLIENT)
+	@Override
+	public String getTexture (Entity enity) {
+		return "minecraft:textures/entity/bat.png";
+	}
 }

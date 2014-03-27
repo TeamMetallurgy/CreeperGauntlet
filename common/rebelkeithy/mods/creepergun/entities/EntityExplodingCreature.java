@@ -262,12 +262,10 @@ public class EntityExplodingCreature extends EntityLiving
     	}
     }
     
-    //TODO: Check if getTexture() is required or have a repleacement
-    /*@Override
     public String getTexture()
     {
     	return creatureType.getTexture(entity);
-    }*/
+    }
 
     /**
      * Drops an item at the position of the entity.

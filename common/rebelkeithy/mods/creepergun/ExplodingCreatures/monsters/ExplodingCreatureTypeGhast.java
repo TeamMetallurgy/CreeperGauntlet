@@ -29,4 +29,10 @@ public class ExplodingCreatureTypeGhast extends ExplodingCreatureTypeBase
 	{
 		return true;
 	}
+	
+	@SideOnly(Side.CLIENT)
+	@Override
+	public String getTexture (Entity enity) {
+		return "minecraft:textures/entity/ghast/ghast.png";
+	}
 }

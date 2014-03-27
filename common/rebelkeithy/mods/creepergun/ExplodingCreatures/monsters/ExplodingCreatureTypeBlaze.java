@@ -24,4 +24,10 @@ public class ExplodingCreatureTypeBlaze extends ExplodingCreatureTypeBase
 	{
 		return true;
 	}
+	
+	@SideOnly(Side.CLIENT)
+	@Override
+	public String getTexture (Entity enity) {
+		return "minecraft:textures/entity/blaze.png";
+	}
 }

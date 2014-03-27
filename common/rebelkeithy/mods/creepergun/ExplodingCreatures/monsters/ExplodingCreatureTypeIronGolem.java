@@ -10,7 +10,6 @@ import rebelkeithy.mods.creepergun.models.ModelExplodingIronGolem;
 import rebelkeithy.mods.creepergun.models.ModelExplodingOcelot;
 import rebelkeithy.mods.creepergun.models.ModelExplodingWolf;
 import rebelkeithy.mods.creepergun.utils.CustomEntityItemStack;
-
 import net.minecraft.block.Block;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelChicken;
@@ -47,5 +46,11 @@ public class ExplodingCreatureTypeIronGolem extends ExplodingCreatureTypeBase
         entityitem.setMotion(Math.random()*0.0, Math.random()*1+1, Math.random()*0.0-0.0);
         entityitem.delayBeforeCanPickup = 10;
         entity.worldObj.spawnEntityInWorld(entityitem);
+	}
+	
+	@SideOnly(Side.CLIENT)
+	@Override
+	public String getTexture (Entity enity) {
+		return "minecraft:textures/entity/iron_golem.png";
 	}
 }

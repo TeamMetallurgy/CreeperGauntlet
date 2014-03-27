@@ -38,7 +38,7 @@ public class ExplodingCreatureTypeSheep extends ExplodingCreatureTypeBase
 	{
 		//TODO: Get replacement for getTexture
 		//return entity.getTexture();
-		return "";
+		return "minecraft:textures/entity/sheep/sheep.png";
 	}
 
 	@Override

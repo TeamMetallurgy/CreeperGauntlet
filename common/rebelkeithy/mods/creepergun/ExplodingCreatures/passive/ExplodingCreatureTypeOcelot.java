@@ -7,7 +7,6 @@ import rebelkeithy.mods.creepergun.CreeperConfig;
 import rebelkeithy.mods.creepergun.ExplodingCreatures.ExplodingCreatureTypeBase;
 import rebelkeithy.mods.creepergun.models.ModelExplodingBat;
 import rebelkeithy.mods.creepergun.models.ModelExplodingOcelot;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelChicken;
 import net.minecraft.entity.Entity;
@@ -23,5 +22,11 @@ public class ExplodingCreatureTypeOcelot extends ExplodingCreatureTypeBase
 	public ModelBase getModel(Entity entity) 
 	{
 		return new ModelExplodingOcelot();
+	}
+	
+	@SideOnly(Side.CLIENT)
+	@Override
+	public String getTexture (Entity enity) {
+		return "textures/entity/cat/ocelot.png";
 	}
 }

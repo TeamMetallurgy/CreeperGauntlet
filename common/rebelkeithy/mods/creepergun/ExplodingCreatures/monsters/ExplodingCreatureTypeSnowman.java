@@ -28,4 +28,10 @@ public class ExplodingCreatureTypeSnowman extends ExplodingCreatureTypeBase
         entityitem.delayBeforeCanPickup = 10;
         entity.worldObj.spawnEntityInWorld(entityitem);
 	}
+	
+	@SideOnly(Side.CLIENT)
+	@Override
+	public String getTexture (Entity enity) {
+		return "minecraft:textures/entity/snowman.png";
+	}
 }

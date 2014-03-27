@@ -40,4 +40,10 @@ public class ExplodingCreatureTypeSlime extends ExplodingCreatureTypeBase
 	{
 		return (int) (2 * ((EntitySlime)entity).getSlimeSize()/2.0);
 	}
+	
+	@SideOnly(Side.CLIENT)
+	@Override
+	public String getTexture (Entity enity) {
+		return "minecraft:textures/entity/slime/slime.png";
+	}
 }

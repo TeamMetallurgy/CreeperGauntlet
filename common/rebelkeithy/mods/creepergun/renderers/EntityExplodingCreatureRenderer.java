@@ -18,6 +18,7 @@ import net.minecraftforge.client.event.RenderLivingEvent;
 import org.lwjgl.opengl.GL11;
 
 import rebelkeithy.mods.creepergun.api.IExplodingCreatureRendererHelper;
+import rebelkeithy.mods.creepergun.api.IExplodingCreatureType;
 import rebelkeithy.mods.creepergun.api.IRenderAccess;
 import rebelkeithy.mods.creepergun.entities.EntityExplodingCreature;
 import cpw.mods.fml.relauncher.Side;
@@ -246,7 +247,14 @@ public class EntityExplodingCreatureRenderer extends RenderLiving implements IRe
 
 	@Override
 	protected ResourceLocation getEntityTexture(Entity entity) {
-		// TODO: Send texture
-		return new ResourceLocation("");
+		
+		String textureLocation = "";
+		
+		if (entity instanceof EntityExplodingCreature)
+		{
+			textureLocation = ((EntityExplodingCreature)entity).getTexture();
+		}
+		
+		return new ResourceLocation(textureLocation);
 	}
 }

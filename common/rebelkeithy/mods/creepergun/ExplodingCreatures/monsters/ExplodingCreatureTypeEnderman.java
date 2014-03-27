@@ -9,7 +9,6 @@ import rebelkeithy.mods.creepergun.models.ModelExplodingBat;
 import rebelkeithy.mods.creepergun.models.ModelExplodingOcelot;
 import rebelkeithy.mods.creepergun.models.ModelExplodingWolf;
 import rebelkeithy.mods.creepergun.utils.CustomEntityItemStack;
-
 import net.minecraft.block.Block;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelChicken;
@@ -41,5 +40,11 @@ public class ExplodingCreatureTypeEnderman extends ExplodingCreatureTypeBase
     			player.addPotionEffect(new PotionEffect(15, 200));
     		}
         }
+	}
+	
+	@SideOnly(Side.CLIENT)
+	@Override
+	public String getTexture (Entity enity) {
+		return "minecraft:textures/entity/enderman/enderman.png";
 	}
 }

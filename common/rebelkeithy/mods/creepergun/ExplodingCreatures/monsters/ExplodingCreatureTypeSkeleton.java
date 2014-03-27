@@ -9,7 +9,6 @@ import rebelkeithy.mods.creepergun.models.ModelExplodingBat;
 import rebelkeithy.mods.creepergun.models.ModelExplodingOcelot;
 import rebelkeithy.mods.creepergun.models.ModelExplodingSkeleton;
 import rebelkeithy.mods.creepergun.models.ModelExplodingWolf;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelChicken;
 import net.minecraft.entity.Entity;
@@ -25,5 +24,11 @@ public class ExplodingCreatureTypeSkeleton extends ExplodingCreatureTypeBase
 	public ModelBase getModel(Entity entity) 
 	{
 		return new ModelExplodingSkeleton();
+	}
+	
+	@SideOnly(Side.CLIENT)
+	@Override
+	public String getTexture (Entity enity) {
+		return "minecraft:textures/entity/skeleton/skeleton.png";
 	}
 }
