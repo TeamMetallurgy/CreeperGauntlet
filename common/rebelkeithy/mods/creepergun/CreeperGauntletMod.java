@@ -24,8 +24,11 @@ import rebelkeithy.mods.creepergun.ExplodingCreatures.monsters.ExplodingCreature
 import rebelkeithy.mods.creepergun.ExplodingCreatures.monsters.ExplodingCreatureTypeWitch;
 import rebelkeithy.mods.creepergun.ExplodingCreatures.passive.ExplodingCreatureTypeBat;
 import rebelkeithy.mods.creepergun.ExplodingCreatures.passive.ExplodingCreatureTypeChicken;
+import rebelkeithy.mods.creepergun.ExplodingCreatures.passive.ExplodingCreatureTypeCow;
 import rebelkeithy.mods.creepergun.ExplodingCreatures.passive.ExplodingCreatureTypeOcelot;
+import rebelkeithy.mods.creepergun.ExplodingCreatures.passive.ExplodingCreatureTypePig;
 import rebelkeithy.mods.creepergun.ExplodingCreatures.passive.ExplodingCreatureTypeSheep;
+import rebelkeithy.mods.creepergun.ExplodingCreatures.passive.ExplodingCreatureTypeSquid;
 import rebelkeithy.mods.creepergun.ExplodingCreatures.passive.ExplodingCreatureTypeVillager;
 import rebelkeithy.mods.creepergun.ExplodingCreatures.passive.ExplodingCreatureTypeWolf;
 import rebelkeithy.mods.creepergun.api.CreeperGauntletAPI;
@@ -94,11 +97,11 @@ public class CreeperGauntletMod
 		explodingCreatureMap.put("EntityBat", new ExplodingCreatureTypeBat());
 		explodingCreatureMap.put("EntityChicken", new ExplodingCreatureTypeChicken());
 		explodingCreatureMap.put("EntitySheep", new ExplodingCreatureTypeSheep());
-		explodingCreatureMap.put("EntityCow", new ExplodingCreatureTypeBase());
+		explodingCreatureMap.put("EntityCow", new ExplodingCreatureTypeCow());
 		explodingCreatureMap.put("EntityMooshroom", new ExplodingCreatureTypeMooshroom());
 		explodingCreatureMap.put("EntityOcelot", new ExplodingCreatureTypeOcelot());
-		explodingCreatureMap.put("EntityPig", new ExplodingCreatureTypeBase());
-		explodingCreatureMap.put("EntitySquid", new ExplodingCreatureTypeBase());
+		explodingCreatureMap.put("EntityPig", new ExplodingCreatureTypePig());
+		explodingCreatureMap.put("EntitySquid", new ExplodingCreatureTypeSquid());
 		explodingCreatureMap.put("EntityVillager", new ExplodingCreatureTypeVillager());
 		explodingCreatureMap.put("EntityWolf", new ExplodingCreatureTypeWolf());
 
