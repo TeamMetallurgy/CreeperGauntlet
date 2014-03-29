@@ -16,12 +16,14 @@ import rebelkeithy.mods.creepergun.ExplodingCreatures.monsters.ExplodingCreature
 import rebelkeithy.mods.creepergun.ExplodingCreatures.monsters.ExplodingCreatureTypeIronGolem;
 import rebelkeithy.mods.creepergun.ExplodingCreatures.monsters.ExplodingCreatureTypeMagmaCube;
 import rebelkeithy.mods.creepergun.ExplodingCreatures.monsters.ExplodingCreatureTypeMooshroom;
+import rebelkeithy.mods.creepergun.ExplodingCreatures.monsters.ExplodingCreatureTypePigZombie;
 import rebelkeithy.mods.creepergun.ExplodingCreatures.monsters.ExplodingCreatureTypeSilverfish;
 import rebelkeithy.mods.creepergun.ExplodingCreatures.monsters.ExplodingCreatureTypeSkeleton;
 import rebelkeithy.mods.creepergun.ExplodingCreatures.monsters.ExplodingCreatureTypeSlime;
 import rebelkeithy.mods.creepergun.ExplodingCreatures.monsters.ExplodingCreatureTypeSnowman;
 import rebelkeithy.mods.creepergun.ExplodingCreatures.monsters.ExplodingCreatureTypeSpider;
 import rebelkeithy.mods.creepergun.ExplodingCreatures.monsters.ExplodingCreatureTypeWitch;
+import rebelkeithy.mods.creepergun.ExplodingCreatures.monsters.ExplodingCreatureTypeZombie;
 import rebelkeithy.mods.creepergun.ExplodingCreatures.passive.ExplodingCreatureTypeBat;
 import rebelkeithy.mods.creepergun.ExplodingCreatures.passive.ExplodingCreatureTypeChicken;
 import rebelkeithy.mods.creepergun.ExplodingCreatures.passive.ExplodingCreatureTypeCow;
@@ -111,14 +113,14 @@ public class CreeperGauntletMod
 		explodingCreatureMap.put("EntityGhast", new ExplodingCreatureTypeGhast());
 		explodingCreatureMap.put("EntityIronGolem", new ExplodingCreatureTypeIronGolem());
 		explodingCreatureMap.put("EntityMagmaCube", new ExplodingCreatureTypeMagmaCube());
-		explodingCreatureMap.put("EntityPigZombie", new ExplodingCreatureTypeBase());
+		explodingCreatureMap.put("EntityPigZombie", new ExplodingCreatureTypePigZombie());
 		explodingCreatureMap.put("EntitySilverfish", new ExplodingCreatureTypeSilverfish());
 		explodingCreatureMap.put("EntitySkeleton", new ExplodingCreatureTypeSkeleton());
 		explodingCreatureMap.put("EntitySlime", new ExplodingCreatureTypeSlime());
 		explodingCreatureMap.put("EntitySnowman", new ExplodingCreatureTypeSnowman());
 		explodingCreatureMap.put("EntitySpider", new ExplodingCreatureTypeSpider());
 		explodingCreatureMap.put("EntityWitch", new ExplodingCreatureTypeWitch());
-		explodingCreatureMap.put("EntityZombie", new ExplodingCreatureTypeBase());
+		explodingCreatureMap.put("EntityZombie", new ExplodingCreatureTypeZombie());
 		
 		
 		proxy.registerModelRenderers();
