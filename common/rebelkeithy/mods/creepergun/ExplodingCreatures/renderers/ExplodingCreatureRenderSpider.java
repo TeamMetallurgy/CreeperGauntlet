@@ -1,6 +1,7 @@
 package rebelkeithy.mods.creepergun.ExplodingCreatures.renderers;
 
 import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.model.ModelSpider;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.passive.EntityVillager;
@@ -12,6 +13,8 @@ import rebelkeithy.mods.creepergun.api.IRenderAccess;
 
 public class ExplodingCreatureRenderSpider implements IExplodingCreatureRendererHelper
 {
+	
+	private ModelBase spiderModel = new ModelSpider();
 
 	@Override
 	public void preRenderCallback(IRenderAccess renderer, EntityLiving par1EntityLiving, float par2) 
@@ -27,7 +30,7 @@ public class ExplodingCreatureRenderSpider implements IExplodingCreatureRenderer
         }
         else
         {
-        	renderer.loadTexture("/mob/spider_eyes.png");
+        	renderer.loadTexture("minecraft:textures/entity/spider_eyes.png");
             float f1 = 1.0F;
             GL11.glEnable(GL11.GL_BLEND);
             GL11.glDisable(GL11.GL_ALPHA_TEST);
@@ -61,7 +64,7 @@ public class ExplodingCreatureRenderSpider implements IExplodingCreatureRenderer
 	@Override
 	public ModelBase getRenderPassModel() 
 	{
-		return null;
+		return spiderModel;
 	}
 	
 }

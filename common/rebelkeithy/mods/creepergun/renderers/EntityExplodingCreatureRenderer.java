@@ -115,8 +115,8 @@ public class EntityExplodingCreatureRenderer extends RenderLiving implements IRe
 
     public void loadTexture(String par1Str)
     {
-    	//TODO: Find Replacement for loadTexture;
-    	//super.loadTexture(par1Str);
+    	ResourceLocation resourceLocation = new ResourceLocation (par1Str);
+    	bindTexture(resourceLocation);
     }
     
     public RenderManager getRenderManager()
@@ -256,5 +256,10 @@ public class EntityExplodingCreatureRenderer extends RenderLiving implements IRe
 		}
 		
 		return new ResourceLocation(textureLocation);
+	}
+	
+	@Override
+	public void bindTexture (ResourceLocation resourceLocation) {
+		super.bindTexture(resourceLocation);
 	}
 }

@@ -25,7 +25,7 @@ public class ExplodingCreatureRenderSheep implements IExplodingCreatureRendererH
 		EntitySheep sheep = (EntitySheep)par1EntityLiving;
         if (par2 == 0 && !sheep.getSheared())
         {
-        	renderer.loadTexture("/mob/sheep_fur.png");
+        	renderer.loadTexture("minecraft:textures/entity/sheep/sheep_fur.png");
             float f1 = 1.0F;
             int j = sheep.getFleeceColor();
             GL11.glColor3f(f1 * EntitySheep.fleeceColorTable[j][0], f1 * EntitySheep.fleeceColorTable[j][1], f1 * EntitySheep.fleeceColorTable[j][2]);
